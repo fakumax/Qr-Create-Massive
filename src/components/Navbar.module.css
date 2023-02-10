@@ -1,0 +1,12 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+  background-color: var(--cerulean);
+}
+.icon {
+  background-color: red;
+}
+.headerTest {
+  height: 80px;
+}

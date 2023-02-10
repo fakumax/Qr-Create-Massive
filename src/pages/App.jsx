@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import reactLogo from '../assets/react.svg';
 import QRCode from 'qrcode.react';
- 
+
 import Navbar from '../components/Navbar.jsx';
 
 function App() {

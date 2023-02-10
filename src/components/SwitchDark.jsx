@@ -8,12 +8,7 @@ const SwitchDark = () => {
     setDarkMode(checked);
   };
   return (
-    <DarkModeSwitch
-      style={{ marginBottom: '2rem' }}
-      checked={isDarkMode}
-      onChange={toggleDarkMode}
-      size={120}
-    />
+    <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} size={40} />
   );
 };
 
