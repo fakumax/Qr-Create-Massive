@@ -4,11 +4,11 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <header className='headerTest'>
+    <header>
       <nav className={styles.navigation}>
-        <div>
+        <div className={styles.name}>
           <h1 className={styles.title}>QR Massive Generator</h1>
-          <small className='name'>by Facundo Vergara</small>
+          <small>by Facundo Vergara</small>
         </div>
         <div className={styles.icon}>
           <SwitchDark />
