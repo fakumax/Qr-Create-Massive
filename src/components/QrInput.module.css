@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+input {
+  height: 32px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  font-size: 16;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+.qr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0px;
+}
