@@ -29,21 +29,25 @@ const QrInput = () => {
         <QRCodeSVG
           id='qr-gen'
           value={qrValue}
-          size={128}
+          size={290}
           bgColor={'#ffffff'}
           fgColor={'#000000'}
-          level={'L'}
-          includeMargin={false}
-          imageSettings={{
-            src: 'https://static.zpao.com/favicon.png',
-            x: undefined,
-            y: undefined,
-            height: 24,
-            width: 24,
-            excavate: true,
-          }}
+          level={'H'}
+          includeMargin={true}
+          //   imageSettings={{
+          //     src: 'https://static.zpao.com/favicon.png',
+          //     x: undefined,
+          //     y: undefined,
+          //     height: 24,
+          //     width: 24,
+          //     excavate: true,
+          //   }}
         />
-        <button type='button' onClick={downloadQRCode}>
+        <button
+          type='button'
+          className={styles.buttonDownload}
+          onClick={downloadQRCode}
+        >
           Download QR Code
         </button>
       </div>

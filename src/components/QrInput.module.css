@@ -11,13 +11,17 @@ input {
   border-radius: 4px;
   font-size: 16;
   border: none;
-}
-input:focus {
   outline: none;
 }
+
 .qr {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 20px 0px;
+}
+.buttonDownload {
+  margin-top: 20px;
+  border-radius: 4px;
+  border: none;
 }
