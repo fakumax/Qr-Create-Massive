@@ -1,58 +1,123 @@
-import React, { useState } from 'react';
-import { QRCodeSVG } from 'qrcode.react';
+import React, { useEffect, useRef, useState, ChangeEvent } from 'react';
 import styles from './QrInput.module.css';
 
-const QrInput = () => {
-  const [qrValue, setQrValue] = useState('');
+import QRCodeStyling, {
+  DrawType,
+  TypeNumber,
+  Mode,
+  ErrorCorrectionLevel,
+  DotType,
+  CornerSquareType,
+  CornerDotType,
+  Extension,
+  Options,
+} from 'qr-code-styling';
 
-  const handleOnChange = (e) => {
-    const { value } = e.target;
-    setQrValue(value);
+export default function QrInput() {
+  const [options, setOptions] = useState({
+    width: 300,
+    height: 300,
+    type: 'svg',
+    data: 'http://qr-code-styling.com',
+    // image: '/favicon.ico',
+    margin: 10,
+    qrOptions: {
+      typeNumber: 0,
+      mode: 'Byte',
+      errorCorrectionLevel: 'Q',
+    },
+    imageOptions: {
+      hideBackgroundDots: true,
+      imageSize: 0.4,
+      margin: 20,
+      crossOrigin: 'anonymous',
+    },
+    dotsOptions: {
+      color: '#222222',
+      // gradient: {
+      //   type: 'linear', // 'radial'
+      //   rotation: 0,
+      //   colorStops: [{ offset: 0, color: '#8688B2' }, { offset: 1, color: '#77779C' }]
+      // },
+      type: 'rounded',
+    },
+    backgroundOptions: {
+      color: '#5FD4F3',
+      // gradient: {
+      //   type: 'linear', // 'radial'
+      //   rotation: 0,
+      //   colorStops: [{ offset: 0, color: '#ededff' }, { offset: 1, color: '#e6e7ff' }]
+      // },
+    },
+    cornersSquareOptions: {
+      color: '#222222',
+      type: 'extra-rounded',
+      // gradient: {
+      //   type: 'linear', // 'radial'
+      //   rotation: 180,
+      //   colorStops: [{ offset: 0, color: '#25456e' }, { offset: 1, color: '#4267b2' }]
+      // },
+    },
+    cornersDotOptions: {
+      color: '#222222',
+      type: 'dot',
+      // gradient: {
+      //   type: 'linear', // 'radial'
+      //   rotation: 180,
+      //   colorStops: [{ offset: 0, color: '#00266e' }, { offset: 1, color: '#4060b3' }]
+      // },
+    },
+  });
+  const [fileExt, setFileExt] = useState('svg');
+  const [qrCode] = useState(new QRCodeStyling(options));
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      qrCode.append(ref.current);
+    }
+  }, [qrCode, ref]);
+
+  useEffect(() => {
+    if (!qrCode) return;
+    qrCode.update(options);
+  }, [qrCode, options]);
+
+  const onDataChange = (event) => {
+    setOptions((options) => ({
+      ...options,
+      data: event.target.value,
+    }));
   };
-  const downloadQRCode = () => {
-    // Generate download with use canvas and stream
-    const canvas = document.getElementById('qr-gen');
-    const pngUrl = canvas
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream');
-    let downloadLink = document.createElement('a');
-    downloadLink.href = pngUrl;
-    downloadLink.download = `${qrValue}.png`;
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+
+  const onExtensionChange = (event) => {
+    setFileExt(event.target.value);
   };
+
+  const onDownloadClick = () => {
+    if (!qrCode) return;
+    qrCode.download({
+      extension: fileExt,
+    });
+  };
+
   return (
-    <div className={styles.container}>
-      <input onChange={handleOnChange} placeholder='Ingrese un texto...' />
-      <div className={styles.qr}>
-        <QRCodeSVG
-          id='qr-gen'
-          value={qrValue}
-          size={290}
-          bgColor={'#ffffff'}
-          fgColor={'#000000'}
-          level={'H'}
-          includeMargin={true}
-          //   imageSettings={{
-          //     src: 'https://static.zpao.com/favicon.png',
-          //     x: undefined,
-          //     y: undefined,
-          //     height: 24,
-          //     width: 24,
-          //     excavate: true,
-          //   }}
+    <div className={styles.App}>
+      <div className={styles.inputWrapper}>
+        <input
+          value={options.data}
+          onChange={onDataChange}
+          className={styles.inputBox}
         />
-        <button
-          type='button'
-          className={styles.buttonDownload}
-          onClick={downloadQRCode}
-        >
-          Download QR Code
-        </button>
+        <select onChange={onExtensionChange} value={fileExt}>
+          <option value='svg'>SVG</option>
+          <option value='png'>PNG</option>
+          <option value='jpeg'>JPEG</option>
+          <option value='webp'>WEBP</option>
+        </select>
+        <button onClick={onDownloadClick}>Download</button>
       </div>
+      <div ref={ref} />
     </div>
   );
-};
-
-export default QrInput;
+}
