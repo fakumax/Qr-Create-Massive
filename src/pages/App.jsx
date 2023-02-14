@@ -3,15 +3,17 @@ import reactLogo from '../assets/react.svg';
 
 import Navbar from '../components/Navbar.jsx';
 import QrInput from '../components/QrInput';
-
-function App() {
+import Sidebar from '../components/Sidebar';
+const App = () => {
   return (
     <>
       <Navbar />
-
-      <QrInput />
+      <div>
+        <QrInput />
+        <Sidebar />
+      </div>
     </>
   );
-}
+};
 
 export default App;

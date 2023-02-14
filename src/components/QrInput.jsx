@@ -18,7 +18,7 @@ export default function QrInput() {
     width: 300,
     height: 300,
     type: 'svg',
-    data: 'http://qr-code-styling.com',
+    data: 'https://www.fakumax.dev/',
     // image: '/favicon.ico',
     margin: 10,
     qrOptions: {
