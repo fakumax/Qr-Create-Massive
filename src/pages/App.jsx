@@ -63,9 +63,15 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <QrInput options={options} setOptions={setOptions} />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          marginTop: 50,
+        }}
+      >
         <Sidebar options={options} setOptions={setOptions} />
+        <QrInput options={options} setOptions={setOptions} />
       </div>
     </>
   );

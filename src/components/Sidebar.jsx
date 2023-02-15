@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './commons/Input';
 
 const Sidebar = ({ options, setOptions }) => {
   const onDataChange = (event) => {
@@ -15,33 +16,36 @@ const Sidebar = ({ options, setOptions }) => {
     }));
   };
   return (
-    <>
+    <div>
       <div>
         <label htmlFor='files'>Image File : </label>
         <input type='file' id='files' />
       </div>
-      <div>
+      {/* <div>
         <label htmlFor='width'>Width :</label>
         <input type='number' id='width' name='width' onChange={onDataChange} />
-      </div>
-      <div>
-        <label htmlFor='height'>Height : </label>
-        <input
-          type='number'
-          id='height'
-          name='height'
-          onChange={onDataChange}
-        />
-      </div>
-      <div>
-        <label htmlFor='margin'>Margin : </label>
-        <input
-          type='number'
-          id='margin'
-          name='margin'
-          onChange={onDataChange}
-        />
-      </div>
+      </div> */}
+      <Input
+        type='number'
+        text='Width : '
+        name='width'
+        options={options}
+        setOptions={setOptions}
+      />
+      <Input
+        type='number'
+        text='Height : '
+        name='height'
+        options={options}
+        setOptions={setOptions}
+      />
+      <Input
+        type='number'
+        text='Margin : '
+        name='margin'
+        options={options}
+        setOptions={setOptions}
+      />
       <div>
         <h3>Dots Option</h3>
         <label htmlFor='dotsOptions'>Dots Style: </label>
@@ -92,7 +96,7 @@ const Sidebar = ({ options, setOptions }) => {
           <option value='h'>H</option>
         </select>
       </div>
-    </>
+    </div>
   );
 };
 
