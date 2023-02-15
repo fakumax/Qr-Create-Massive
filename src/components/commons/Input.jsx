@@ -11,13 +11,7 @@ const Input = ({ type, name, Onchange, text, options, setOptions }) => {
   return (
     <Container>
       <label htmlFor={name}>{text}</label>
-      <InputStyle
-        type={type}
-        id={name}
-        name={name}
-        value={options}
-        onChange={onDataChange}
-      />
+      <InputStyle type={type} id={name} name={name} onChange={onDataChange} />
     </Container>
   );
 };
