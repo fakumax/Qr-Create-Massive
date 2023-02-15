@@ -1,6 +1,19 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({ options, setOptions }) => {
+  const onDataChange = (event) => {
+    setOptions((options) => ({
+      ...options,
+      [event.target.name]: event.target.value,
+    }));
+  };
+  const handlechange = (e) => {
+    console.log('event', e);
+    setOptions((options) => ({
+      ...options,
+      [e.target.text]: e.target.value,
+    }));
+  };
   return (
     <>
       <div>
@@ -9,20 +22,30 @@ const Sidebar = () => {
       </div>
       <div>
         <label htmlFor='width'>Width :</label>
-        <input type='number' id='width' />
+        <input type='number' id='width' name='width' onChange={onDataChange} />
       </div>
       <div>
         <label htmlFor='height'>Height : </label>
-        <input type='number' id='height' />
+        <input
+          type='number'
+          id='height'
+          name='height'
+          onChange={onDataChange}
+        />
       </div>
       <div>
         <label htmlFor='margin'>Margin : </label>
-        <input type='number' id='margin' />
+        <input
+          type='number'
+          id='margin'
+          name='margin'
+          onChange={onDataChange}
+        />
       </div>
       <div>
         <h3>Dots Option</h3>
-        <label htmlFor=''>Dots Style: </label>
-        <select>
+        <label htmlFor='dotsOptions'>Dots Style: </label>
+        <select name='dotsOptions' id='dotsOptions' onChange={handlechange}>
           <option value='square'>Square</option>
           <option value='dots'>Dots</option>
           <option value='rounded'>Rounded</option>
@@ -55,8 +78,14 @@ const Sidebar = () => {
         </select>
       </div>
       <div>
-        <label htmlFor='correctionlevel'>Error Correction Level : </label>
-        <select>
+        <label
+          htmlFor='correctionlevel'
+          name='qrOptions'
+          onChange={onDataChange}
+        >
+          Error Correction Level :
+        </label>
+        <select id='qrOptions' onChange={onDataChange}>
           <option value='l'>L</option>
           <option value='m'>M</option>
           <option value='q'>Q</option>
