@@ -26,25 +26,15 @@ const Sidebar = ({ options, setOptions }) => {
   //     },
   //   }));
   // };
-  const handleQrOptions = (e) => {
-    setOptions((options) => ({
-      ...options,
-      qrOptions: {
-        ...options.qrOptions,
-        [e.target.name]: e.target.value,
-      },
-    }));
-  };
-  const handleCornerStyle = (e) => {
-    console.log('e', e.target.id);
-    // setOptions((options) => ({
-    //   ...options,
-    //   qrOptions: {
-    //     ...options.qrOptions,
-    //     [e.target.name]: e.target.value,
-    //   },
-    // }));
-  };
+  // const handleQrOptions = (e) => {
+  //   setOptions((options) => ({
+  //     ...options,
+  //     qrOptions: {
+  //       ...options.qrOptions,
+  //       [e.target.name]: e.target.value,
+  //     },
+  //   }));
+  // };
 
   return (
     <div>
@@ -106,11 +96,13 @@ const Sidebar = ({ options, setOptions }) => {
       {/*********************/}
       <div>
         <h3>Corners Square Options</h3>
-        <label htmlFor='cornerSquare'>Corners Square Style : </label>
+        <label htmlFor='corner-square'>Corners Square Style : </label>
         <select
-          name='cornerSquare'
-          id='cornerSquaress'
-          onChange={handleCornerStyle}
+          name='corner-square'
+          id='corner-square'
+          property='type'
+          field='cornersSquareOptions'
+          onChange={handlechange}
         >
           <option value=''>None</option>
           <option value='square'>Square</option>
@@ -119,8 +111,15 @@ const Sidebar = ({ options, setOptions }) => {
         </select>
       </div>
       <div>
-        <label htmlFor='color'>Corners Square Color : </label>
-        <input type='color' id='color' name='color' onChange={handlechange} />
+        <label htmlFor='color-square'>Corners Square Color : </label>
+        <input
+          type='color'
+          id='color-square'
+          name='color-square'
+          property='color'
+          field='cornersSquareOptions'
+          onChange={handlechange}
+        />
       </div>
       {/*********************/}
 
@@ -136,7 +135,7 @@ const Sidebar = ({ options, setOptions }) => {
       <div>
         <h3>QR Options</h3>
         <label htmlFor='mode'>Mode: </label>
-        <select name='mode' id='mode' onChange={handleQrOptions}>
+        <select name='mode' id='mode' onChange={handlechange}>
           <option value='Numeric'>numeric</option>
           <option value='Alphanumeric'>Alphanumeric</option>
           <option value='Byte'>Byte</option>
@@ -148,7 +147,7 @@ const Sidebar = ({ options, setOptions }) => {
         <select
           id='errorCorrectionLevel'
           name='errorCorrectionLevel'
-          onChange={handleQrOptions}
+          onChange={handlechange}
         >
           <option value='L'>L</option>
           <option value='M'>M</option>
