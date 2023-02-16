@@ -122,24 +122,60 @@ const Sidebar = ({ options, setOptions }) => {
         />
       </div>
       {/*********************/}
-
       <div>
-        <label htmlFor=''>Background color : </label>
-        <input type='file' />
+        <h3>Corners Dots Options</h3>
+        <label htmlFor='corner-dots'>Corners Square Style : </label>
+        <select
+          name='corner-dots'
+          id='corner-dots'
+          property='type'
+          field='cornersDotOptions'
+          onChange={handlechange}
+        >
+          <option value=''>None</option>
+          <option value='square'>Square</option>
+          <option value='dot'>Dot</option>
+        </select>
       </div>
+      <div>
+        <label htmlFor='color-dots'>Corners Dot Color : </label>
+        <input
+          type='color'
+          id='color-dots'
+          name='color-dots'
+          property='color'
+          field='cornersDotOptions'
+          onChange={handlechange}
+        />
+      </div>
+      {/*********************/}
+
       <div>
         <h3>Background Options</h3>
         <label htmlFor=''>Background color : </label>
-        <input type='color' />
+        <input
+          type='color'
+          id='bg-color'
+          name='bg-color'
+          property='color'
+          field='backgroundOptions'
+          onChange={handlechange}
+        />
       </div>
       <div>
         <h3>QR Options</h3>
         <label htmlFor='mode'>Mode: </label>
         <select name='mode' id='mode' onChange={handlechange}>
-          <option value='Numeric'>numeric</option>
-          <option value='Alphanumeric'>Alphanumeric</option>
+          <option disabled value='Numeric'>
+            numeric
+          </option>
+          <option disabled value='Alphanumeric'>
+            Alphanumeric
+          </option>
           <option value='Byte'>Byte</option>
-          <option value='Kanji'>Kanji</option>
+          <option disabled value='Kanji'>
+            Kanji
+          </option>
         </select>
       </div>
       <div>
