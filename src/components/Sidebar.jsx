@@ -40,7 +40,7 @@ const Sidebar = ({ options, setOptions }) => {
     <div>
       <div>
         <label htmlFor='files'>Image File : </label>
-        <input type='file' id='files' />
+        <input type='file' id='files' name='image' />
       </div>
 
       <Input
@@ -179,10 +179,12 @@ const Sidebar = ({ options, setOptions }) => {
         </select>
       </div>
       <div>
-        <label htmlFor='errorCorrectionLevel'>Error Correction Level :</label>
+        <label htmlFor='errorCorrection'>Error Correction Level :</label>
         <select
-          id='errorCorrectionLevel'
-          name='errorCorrectionLevel'
+          id='errorCorrection'
+          name='errorCorrection'
+          property='errorCorrectionLevel'
+          field='qrOptions'
           onChange={handlechange}
         >
           <option value='L'>L</option>

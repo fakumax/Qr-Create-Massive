@@ -10,7 +10,7 @@ const App = () => {
     height: 300,
     type: 'svg',
     data: 'https://www.fakumax.dev/',
-    // image: '/favicon.ico',
+    image: '',
     margin: 10,
     qrOptions: {
       typeNumber: 0,
@@ -33,7 +33,7 @@ const App = () => {
       type: 'rounded',
     },
     backgroundOptions: {
-      color: '#5FD4F3',
+      color: '#fff',
       // gradient: {
       //   type: 'linear', // 'radial'
       //   rotation: 0,
