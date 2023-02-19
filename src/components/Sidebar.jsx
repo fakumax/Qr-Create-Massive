@@ -18,11 +18,35 @@ const Sidebar = ({ options, setOptions }) => {
     }));
   };
 
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setOptions((options) => ({
+      ...options,
+      [e.target.name]: base64,
+    }));
+  };
+
   return (
     <div>
       <div>
-        <label htmlFor='image'>Image File : </label>
-        <input type='file' id='image' name='image' onChange={onDataChange} />
+        <label htmlFor='imageLoad'>Image File : </label>
+        <input type='file' id='imageLoad' name='image' onChange={uploadImage} />
       </div>
 
       <Input

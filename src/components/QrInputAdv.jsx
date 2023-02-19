@@ -13,8 +13,8 @@ import QRCodeStyling, {
   Options,
 } from 'qr-code-styling';
 
-const QrInput = ({ options, setOptions }) => {
-  console.log(options);
+const QrInputAdv = ({ options, setOptions }) => {
+  console.log('qrInputAdv');
 
   const [fileExt, setFileExt] = useState('svg');
   const [qrCode] = useState(new QRCodeStyling(options));
@@ -69,4 +69,4 @@ const QrInput = ({ options, setOptions }) => {
   );
 };
 
-export default QrInput;
+export default QrInputAdv;

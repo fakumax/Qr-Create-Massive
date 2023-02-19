@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Checkbox = () => {
+const Checkbox = ({ check, setCheck }) => {
+  const handleCheck = (e) => {
+    console.log('wara');
+    setCheck(!check);
+  };
   return (
     <Container>
       <label className='custom-control-label' htmlFor='switchId'>
@@ -10,9 +14,9 @@ const Checkbox = () => {
       <input
         type='checkbox'
         className='custom-control-input'
-        // id='switchId'
-        // checked={this.state.enableSwitch}
-        // onClick={this.handleSwitch}
+        id='switchId'
+        defaultChecked={check}
+        //onClick={() => handleCheck(e)}
       />
     </Container>
   );

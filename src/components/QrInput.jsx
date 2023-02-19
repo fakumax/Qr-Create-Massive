@@ -14,6 +14,7 @@ import QRCodeStyling, {
 } from 'qr-code-styling';
 
 const QrInput = ({ options, setOptions }) => {
+  console.log('qrInput');
   console.log(options);
 
   const [fileExt, setFileExt] = useState('svg');
