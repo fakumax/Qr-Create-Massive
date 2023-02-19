@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.jsx';
 import QrInput from '../components/QrInput';
 import QrInputAdv from '../components/QrInputAdv';
 import Sidebar from '../components/Sidebar';
+import { Checkbox } from '../components/commons';
 
 const App = () => {
   const [options, setOptions] = useState({
@@ -73,11 +74,14 @@ const App = () => {
         }}
       >
         <Sidebar options={options} setOptions={setOptions} />
-        {check ? (
-          <QrInput options={options} setOptions={setOptions} />
-        ) : (
-          <QrInputAdv options={options} setOptions={setOptions} />
-        )}
+        <div>
+          <Checkbox check='check' setCheck='setCheck' />
+          {check ? (
+            <QrInput options={options} setOptions={setOptions} />
+          ) : (
+            <QrInputAdv options={options} setOptions={setOptions} />
+          )}
+        </div>
       </div>
     </>
   );
