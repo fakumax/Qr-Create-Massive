@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import reactLogo from '../assets/react.svg';
 import Navbar from '../components/Navbar.jsx';
 import QrInput from '../components/QrInput';
+import QrInputAdv from '../components/QrInputAdv';
 import Sidebar from '../components/Sidebar';
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
     },
   });
 
+  const [check, setCheck] = useState(true);
   return (
     <>
       <Navbar />
@@ -71,7 +73,11 @@ const App = () => {
         }}
       >
         <Sidebar options={options} setOptions={setOptions} />
-        <QrInput options={options} setOptions={setOptions} />
+        {check ? (
+          <QrInput options={options} setOptions={setOptions} />
+        ) : (
+          <QrInputAdv options={options} setOptions={setOptions} />
+        )}
       </div>
     </>
   );

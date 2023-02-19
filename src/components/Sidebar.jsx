@@ -17,30 +17,12 @@ const Sidebar = ({ options, setOptions }) => {
       },
     }));
   };
-  // const handleQrOptions = (e) => {
-  //   setOptions((options) => ({
-  //     ...options,
-  //     qrOptions: {
-  //       ...options.qrOptions,
-  //       [e.target.name]: e.target.value,
-  //     },
-  //   }));
-  // };
-  // const handleQrOptions = (e) => {
-  //   setOptions((options) => ({
-  //     ...options,
-  //     qrOptions: {
-  //       ...options.qrOptions,
-  //       [e.target.name]: e.target.value,
-  //     },
-  //   }));
-  // };
 
   return (
     <div>
       <div>
-        <label htmlFor='files'>Image File : </label>
-        <input type='file' id='files' name='image' />
+        <label htmlFor='image'>Image File : </label>
+        <input type='file' id='image' name='image' onChange={onDataChange} />
       </div>
 
       <Input
