@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './commons/Input';
+import styles from './Sidebar.module.css';
 
 const Sidebar = ({ options, setOptions }) => {
   const onDataChange = (e) => {
@@ -70,8 +71,8 @@ const Sidebar = ({ options, setOptions }) => {
         options={options}
         setOptions={setOptions}
       />
-      <div>
-        <h3>Dots Options</h3>
+      <h3>Dots Options</h3>
+      <div className={styles.SelectDiv}>
         <label htmlFor='type'>Dots Style: </label>
         <select
           id='dot-type'
@@ -79,6 +80,7 @@ const Sidebar = ({ options, setOptions }) => {
           property='type'
           field='dotsOptions'
           onChange={handlechange}
+          className={styles.stylesSelector}
         >
           <option value='square'>Square</option>
           <option value='dots'>Dots</option>
@@ -100,8 +102,8 @@ const Sidebar = ({ options, setOptions }) => {
         />
       </div>
       {/*********************/}
-      <div>
-        <h3>Corners Square Options</h3>
+      <h3>Corners Square Options</h3>
+      <div className={styles.SelectDiv}>
         <label htmlFor='corner-square'>Corners Square Style : </label>
         <select
           name='corner-square'
@@ -109,6 +111,7 @@ const Sidebar = ({ options, setOptions }) => {
           property='type'
           field='cornersSquareOptions'
           onChange={handlechange}
+          className={styles.stylesSelector}
         >
           <option value=''>None</option>
           <option value='square'>Square</option>
@@ -128,8 +131,8 @@ const Sidebar = ({ options, setOptions }) => {
         />
       </div>
       {/*********************/}
-      <div>
-        <h3>Corners Dots Options</h3>
+      <h3>Corners Dots Options</h3>
+      <div className={styles.SelectDiv}>
         <label htmlFor='corner-dots'>Corners Square Style : </label>
         <select
           name='corner-dots'
@@ -137,6 +140,7 @@ const Sidebar = ({ options, setOptions }) => {
           property='type'
           field='cornersDotOptions'
           onChange={handlechange}
+          className={styles.stylesSelector}
         >
           <option value=''>None</option>
           <option value='square'>Square</option>
@@ -168,10 +172,15 @@ const Sidebar = ({ options, setOptions }) => {
           onChange={handlechange}
         />
       </div>
-      <div>
-        <h3>QR Options</h3>
+      <h3>QR Options</h3>
+      <div className={styles.SelectDiv}>
         <label htmlFor='mode'>Mode: </label>
-        <select name='mode' id='mode' onChange={handlechange}>
+        <select
+          name='mode'
+          id='mode'
+          onChange={handlechange}
+          className={styles.stylesSelector}
+        >
           <option disabled value='Numeric'>
             numeric
           </option>
@@ -184,7 +193,7 @@ const Sidebar = ({ options, setOptions }) => {
           </option>
         </select>
       </div>
-      <div>
+      <div className={styles.SelectDiv}>
         <label htmlFor='errorCorrection'>Error Correction Level :</label>
         <select
           id='errorCorrection'
@@ -192,6 +201,7 @@ const Sidebar = ({ options, setOptions }) => {
           property='errorCorrectionLevel'
           field='qrOptions'
           onChange={handlechange}
+          className={styles.stylesSelector}
         >
           <option value='L'>L</option>
           <option value='M'>M</option>
