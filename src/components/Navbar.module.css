@@ -6,14 +6,22 @@
   align-items: center;
   height: 80px;
 }
-
 .name {
   justify-content: center;
   align-items: center;
   flex-direction: column;
   line-height: 5px;
 }
-
+@media (max-width: 768px) {
+  .navigation {
+    padding: 0 20px;
+  }
+  .name {
+    font-size: var(--sm);
+    height: 100%;
+    display: flex;
+  }
+}
 h1 {
   font-weight: 700;
   color: var(--black);
