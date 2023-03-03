@@ -133,7 +133,7 @@ const Sidebar = ({ options, setOptions }) => {
       {/*********************/}
       <h3>Corners Dots Options</h3>
       <div className={styles.SelectDiv}>
-        <label htmlFor='corner-dots'>Corners Square Style : </label>
+        <label htmlFor='corner-dots'>Corners Dots Style : </label>
         <select
           name='corner-dots'
           id='corner-dots'
