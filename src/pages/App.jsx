@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar.jsx';
+import Navbar from '../components/commons/Header/Navbar';
 import QrInput from '../components/QrInput';
 import QrInputAdv from '../components/QrInputAdv';
 import Sidebar from '../components/Sidebar';
@@ -74,7 +74,7 @@ const App = () => {
       >
         <Sidebar options={options} setOptions={setOptions} />
         <div>
-          <Checkbox check='check' setCheck='setCheck' />
+          <Checkbox check="check" setCheck="setCheck" />
           {check ? (
             <QrInput options={options} setOptions={setOptions} />
           ) : (

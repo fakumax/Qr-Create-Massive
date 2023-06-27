@@ -7,9 +7,7 @@ const SwitchDark = () => {
   const toggleDarkMode = (checked) => {
     setDarkMode(checked);
   };
-  return (
-    <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} size={40} />
-  );
+  return <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} size={40} />;
 };
 
 export default SwitchDark;

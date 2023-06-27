@@ -1,7 +1,8 @@
 {
   "name": "qr-massive-fakumax",
-  "private": false,
-  "version": "0.0.0",
+  "private": true,
+  "description": "Creation QR",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,7 +20,6 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react-swc": "^3.0.0",
-    "prettier": "^2.8.8",
     "vite": "^4.3.9"
   }
 }

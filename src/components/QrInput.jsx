@@ -52,16 +52,12 @@ const QrInput = ({ options, setOptions }) => {
   return (
     <div className={styles.App}>
       <div className={styles.inputWrapper}>
-        <input
-          value={options.data}
-          onChange={onDataChange}
-          className={styles.inputBox}
-        />
+        <input value={options.data} onChange={onDataChange} className={styles.inputBox} />
         <select onChange={onExtensionChange} value={fileExt}>
-          <option value='svg'>SVG</option>
-          <option value='png'>PNG</option>
-          <option value='jpeg'>JPEG</option>
-          <option value='webp'>WEBP</option>
+          <option value="svg">SVG</option>
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WEBP</option>
         </select>
         <button onClick={onDownloadClick}>Download</button>
       </div>

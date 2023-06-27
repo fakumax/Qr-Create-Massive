@@ -8,13 +8,13 @@ const Checkbox = ({ check, setCheck }) => {
   };
   return (
     <Container>
-      <label className='custom-control-label' htmlFor='switchId'>
+      <label className="custom-control-label" htmlFor="switchId">
         Multi QR creator
       </label>
       <input
-        type='checkbox'
-        className='custom-control-input'
-        id='switchId'
+        type="checkbox"
+        className="custom-control-input"
+        id="switchId"
         defaultChecked={check}
         //onClick={() => handleCheck(e)}
       />
