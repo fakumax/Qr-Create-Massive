@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/commons/Header/Navbar';
 import QrInput from '../components/QrInput';
 import QrInputAdv from '../components/QrInputAdv';
 import Sidebar from '../components/Sidebar';
 import { Checkbox } from '../components/commons';
+import Loader from '../components/commons/Loader/Loader';
 
 const App = () => {
   const [options, setOptions] = useState({
@@ -62,26 +63,45 @@ const App = () => {
   });
 
   const [check, setCheck] = useState(true);
+
+  const [isPageLoaded, setPageLoaded] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setPageLoaded(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <>
-      <Navbar />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          marginTop: 50,
-        }}
-      >
-        <Sidebar options={options} setOptions={setOptions} />
-        <div>
-          <Checkbox check="check" setCheck="setCheck" />
-          {check ? (
-            <QrInput options={options} setOptions={setOptions} />
-          ) : (
-            <QrInputAdv options={options} setOptions={setOptions} />
-          )}
-        </div>
-      </div>
+      {!isPageLoaded ? (
+        <Loader />
+      ) : (
+        <>
+          <Navbar />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              marginTop: 50,
+            }}
+          >
+            <Sidebar options={options} setOptions={setOptions} />
+            <div>
+              <Checkbox check="check" setCheck="setCheck" />
+              {check ? (
+                <QrInput options={options} setOptions={setOptions} />
+              ) : (
+                <QrInputAdv options={options} setOptions={setOptions} />
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
