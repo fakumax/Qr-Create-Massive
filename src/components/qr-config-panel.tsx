@@ -167,7 +167,7 @@ export function QrConfigPanel({ config, onUpdate }: QrConfigPanelProps) {
               <input
                 id="dot-color"
                 type="color"
-                value={config.dotsOptions?.color ?? "#8b5cf6"}
+                value={config.dotsOptions?.color ?? "#d4a017"}
                 onChange={(e) =>
                   onUpdate({
                     dotsOptions: { ...config.dotsOptions, color: e.target.value },

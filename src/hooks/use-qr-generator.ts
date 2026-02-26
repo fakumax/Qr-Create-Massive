@@ -7,10 +7,10 @@ import QRCodeStyling, {
 } from "qr-code-styling";
 
 const DEFAULT_OPTIONS: QROptions = {
-  width: 300,
-  height: 300,
+  width: 220,
+  height: 220,
   data: "https://example.com",
-  dotsOptions: { color: "#8b5cf6", type: "rounded" as DotType },
+  dotsOptions: { color: "#d4a017", type: "rounded" as DotType },
   cornersSquareOptions: { type: "extra-rounded" as CornerSquareType },
   cornersDotOptions: { type: "dot" as CornerDotType },
   backgroundOptions: { color: "transparent" },

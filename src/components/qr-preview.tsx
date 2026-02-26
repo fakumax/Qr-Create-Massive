@@ -16,8 +16,8 @@ export function QrPreview({ qr }: QrPreviewProps) {
   }, [qr]);
 
   return (
-    <div className="flex items-center justify-center rounded-lg bg-white p-6">
-      <div ref={containerRef} />
+    <div className="flex items-center justify-center rounded-lg bg-white p-6 overflow-hidden">
+      <div ref={containerRef} className="max-w-full max-h-[300px] [&>canvas]:max-w-full [&>canvas]:max-h-[300px] [&>canvas]:w-auto [&>canvas]:h-auto [&>svg]:max-w-full [&>svg]:max-h-[300px] [&>svg]:w-auto [&>svg]:h-auto" />
     </div>
   );
 }
